@@ -1,3 +1,4 @@
+import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
   Meta,
@@ -5,8 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
 
+import { ThemeModeScript } from "./components/ThemeMode/ThemeModeScript";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -30,6 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <ThemeModeScript />
       </head>
       <body>
         {children}
