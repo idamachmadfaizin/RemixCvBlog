@@ -16,7 +16,7 @@ export const ThemeModeScript = (
   props: React.ComponentPropsWithoutRef<"script">
 ) => {
   // Default theme mode if none is found in local storage.
-  const defaultMode: ThemeMode = "auto";
+  const defaultMode: ThemeMode = "system";
 
   return (
     <script

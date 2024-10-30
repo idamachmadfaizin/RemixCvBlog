@@ -3,4 +3,4 @@
  * 
  * @author Idam Achmad Faizin
  */
-export type ThemeMode = "auto" | "light" | "dark";
+export type ThemeMode = "system" | "light" | "dark";

@@ -19,7 +19,7 @@ export const ThemeModeLocalStorageKey = "theme";
  */
 export function applyRootThemeMode(theme: ThemeMode) {
   const computedMode: Exclude<ThemeMode, "auto"> =
-    theme === "auto"
+    theme === "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light"
