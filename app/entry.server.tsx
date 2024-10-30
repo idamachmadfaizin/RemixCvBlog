@@ -50,7 +50,7 @@ function handleBotRequest(
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
-        url={encodeURIComponent(request.url)}
+        url={encodeURI(request.url)}
         abortDelay={ABORT_DELAY}
       />,
       {
@@ -100,7 +100,7 @@ function handleBrowserRequest(
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
-        url={encodeURIComponent(request.url)}
+        url={encodeURI(request.url)}
         abortDelay={ABORT_DELAY}
       />,
       {
