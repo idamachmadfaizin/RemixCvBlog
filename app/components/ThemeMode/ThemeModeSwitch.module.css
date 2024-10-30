@@ -1,0 +1,15 @@
+.icon {
+  @apply size-5 stroke-primary-500 stroke-2;
+}
+
+.icon.inactive {
+  @apply stroke-gray-400 stroke-2 dark:stroke-gray-500;
+}
+
+.menuItems {
+  @apply mt-2 w-36 origin-top-right rounded-xl border border-gray-300 bg-white/5 p-1 text-sm/6 text-gray-800 shadow-lg transition duration-100 ease-out focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 dark:border-gray-700 dark:border-white/5 dark:bg-gray-800 dark:text-white dark:shadow-none;
+}
+
+.menuItemsButton {
+  @apply flex w-full items-center gap-2 rounded-lg px-3 py-1.5 font-medium data-[focus]:bg-primary-500/10 dark:data-[focus]:bg-primary-200/20;
+}

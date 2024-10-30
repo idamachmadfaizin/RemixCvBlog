@@ -10,6 +10,7 @@ import { twMerge } from "tailwind-merge";
 import { HeroIconsComponent } from "~/types/heroicons.type";
 import { ThemeMode } from "./ThemeMode.type";
 import { ThemeModeLocalStorageKey, applyRootThemeMode } from "./ThemeModeUtils";
+import styles from "./ThemeModeSwitch.module.css";
 
 /**
  * Switch component for switching between theme modes (auto, light, dark).
@@ -58,27 +59,25 @@ export const ThemeModeSwitch = () => {
   return (
     <Menu>
       <MenuButton className="rounded-lg p-2" aria-label="Theme Switch">
-        <SunIcon className="size-5 stroke-primary-500 stroke-2" />
+        {React.createElement(iconMap[theme ?? "system"], {
+          className: styles.icon,
+        })}
       </MenuButton>
 
-      <MenuItems
-        transition
-        anchor="bottom end"
-        className="mt-2 w-36 origin-top-right rounded-xl border border-gray-300 bg-white/5 p-1 text-sm/6 text-gray-800 shadow-lg transition duration-100 ease-out focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 dark:border-gray-700 dark:border-white/5 dark:bg-gray-800 dark:text-white dark:shadow-none"
-      >
+      <MenuItems transition anchor="bottom end" className={styles.menuItems}>
         {(Object.keys(iconMap) as ThemeMode[]).map((key) => (
           <MenuItem key={key}>
             <button
               className={twMerge(
-                "group flex w-full items-center gap-2 rounded-lg px-3 py-1.5 font-medium data-[focus]:bg-primary-500/10 dark:data-[focus]:bg-primary-200/20",
+                styles.menuItemsButton,
                 key === theme && "text-primary-500",
               )}
               onClick={() => onClick(key)}
             >
               {React.createElement(iconMap[key], {
                 className: twMerge(
-                  "size-5 stroke-gray-400 stroke-2 dark:stroke-gray-500",
-                  key === theme && "stroke-primary-500 dark:stroke-primary-500",
+                  styles.icon,
+                  key !== theme && styles.inactive,
                 ),
               })}
               {startCase(key)}

@@ -2,23 +2,25 @@ import { ThemeMode } from "./ThemeMode.type";
 
 /**
  * Key used to store the theme mode in local storage.
- * 
+ *
  * @author Idam Achmad Faizin
  */
 export const ThemeModeLocalStorageKey = "theme";
 
 /**
  * Applies the given theme mode to the root element of the document.
- * 
- * If the theme is "auto", it will be determined based on the user's 
- * preferred color scheme (dark or light). Otherwise, the given theme 
+ *
+ * If the theme is "auto", it will be determined based on the user's
+ * preferred color scheme (dark or light). Otherwise, the given theme
  * will be applied directly.
- * 
+ *
  * @author Idam Achmad Faizin
  * @param theme The theme mode to apply.
  */
 export function applyRootThemeMode(theme: ThemeMode) {
-  const computedMode: Exclude<ThemeMode, "auto"> =
+  const themeModeAttributeKey = "data-theme";
+
+  const computedMode: Exclude<ThemeMode, "system"> =
     theme === "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
@@ -26,8 +28,8 @@ export function applyRootThemeMode(theme: ThemeMode) {
       : theme;
 
   if (computedMode === "dark") {
-    document.documentElement.classList.add("dark");
+    document.documentElement.setAttribute(themeModeAttributeKey, "dark");
   } else {
-    document.documentElement.classList.remove("dark");
+    document.documentElement.removeAttribute(themeModeAttributeKey);
   }
 }
