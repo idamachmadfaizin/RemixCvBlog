@@ -1,6 +1,23 @@
 {
-    "conventionalCommits.scopes": [
-        "idx",
-        "vscode"
-    ]
+  "conventionalCommits.scopes": ["idx", "vscode"],
+  "IDX.aI.enableInlineCompletion": true,
+  "IDX.aI.enableCodebaseIndexing": true,
+  "cSpell.words": [
+    "Achmad",
+    "Faizin",
+    "flowbite",
+    "headlessui",
+    "heroicons",
+    "Idam",
+    "isbot",
+    "startcase",
+    "tailwindcss",
+    "typecheck"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }
