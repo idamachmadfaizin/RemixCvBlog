@@ -8,16 +8,17 @@ import startCase from "lodash.startcase";
 import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { HeroIconsComponent } from "~/types/heroicons.type";
+import { AppIcon } from "../AppIcon/AppIcon";
 import { ThemeMode } from "./ThemeMode.type";
+import styles from "./ThemeModeSwitch.module.scss";
 import { ThemeModeLocalStorageKey, applyRootThemeMode } from "./ThemeModeUtils";
-import styles from "./ThemeModeSwitch.module.css";
 
 /**
  * Switch component for switching between theme modes (auto, light, dark).
  *
  * @author Idam Achmad Faizin
  */
-export const ThemeModeSwitch = () => {
+export const ThemeModeSwitch: React.FC<{}> = () => {
   const [theme, setTheme] = useState<ThemeMode | null>(null);
 
   /**
@@ -59,9 +60,7 @@ export const ThemeModeSwitch = () => {
   return (
     <Menu>
       <MenuButton className="rounded-lg p-2" aria-label="Theme Switch">
-        {React.createElement(iconMap[theme ?? "system"], {
-          className: styles.icon,
-        })}
+        <AppIcon icon={iconMap[theme ?? "system"]} />
       </MenuButton>
 
       <MenuItems transition anchor="bottom end" className={styles.menuItems}>
@@ -74,12 +73,7 @@ export const ThemeModeSwitch = () => {
               )}
               onClick={() => onClick(key)}
             >
-              {React.createElement(iconMap[key], {
-                className: twMerge(
-                  styles.icon,
-                  key !== theme && styles.inactive,
-                ),
-              })}
+              <AppIcon icon={iconMap[key]} active={key === theme} />
               {startCase(key)}
             </button>
           </MenuItem>
