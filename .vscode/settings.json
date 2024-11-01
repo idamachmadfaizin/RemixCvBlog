@@ -15,7 +15,7 @@
     "typecheck"
   ],
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.{scss,css}": "tailwindcss"
   },
   "tailwindCSS.experimental.classRegex": [
     ["twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
