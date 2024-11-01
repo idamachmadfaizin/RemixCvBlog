@@ -1,5 +1,9 @@
 {
-  "conventionalCommits.scopes": ["idx", "vscode"],
+  "conventionalCommits.scopes": [
+    "idx",
+    "vscode",
+    "component"
+  ],
   "IDX.aI.enableInlineCompletion": true,
   "IDX.aI.enableCodebaseIndexing": true,
   "cSpell.words": [
