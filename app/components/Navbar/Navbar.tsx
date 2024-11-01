@@ -1,9 +1,13 @@
 import { Link } from "@remix-run/react";
+import React from "react";
 import { ThemeModeSwitch } from "../ThemeMode/ThemeModeSwitch";
 
-export const Navbar = () => {
+type Props = React.ComponentPropsWithoutRef<"header">;
+
+export const Navbar: React.FC<Props> = (props) => {
+  props;
   return (
-    <header>
+    <header {...props}>
       <nav className="px-4 py-2.5 lg:px-6">
         <div className="mx-auto flex flex-wrap items-center justify-between">
           <Link to="/" className="flex items-center">
