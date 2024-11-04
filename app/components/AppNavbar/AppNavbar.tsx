@@ -4,11 +4,11 @@ import { ThemeModeSwitch } from "../ThemeMode/ThemeModeSwitch";
 
 type Props = React.ComponentPropsWithoutRef<"header">;
 
-export const Navbar: React.FC<Props> = (props) => {
+export const AppNavbar: React.FC<Props> = (props) => {
   props;
   return (
     <header {...props}>
-      <nav className="px-4 py-2.5 lg:px-6">
+      <nav className="py-2.5 lg:px-6">
         <div className="mx-auto flex flex-wrap items-center justify-between">
           <Link to="/" className="flex items-center">
             <img
