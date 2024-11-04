@@ -9,24 +9,24 @@ import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { HeroIconsComponent } from "~/types/heroicons.type";
 import { AppIcon } from "../AppIcon/AppIcon";
-import { ThemeMode } from "./ThemeMode.type";
-import styles from "./ThemeModeSwitch.module.scss";
-import { ThemeModeLocalStorageKey, applyRootThemeMode } from "./ThemeModeUtils";
+import { AppThemeMode } from "./AppThemeMode.type";
+import styles from "./AppThemeModeSwitch.module.scss";
+import { AppThemeModeLocalStorageKey, appApplyRootThemeMode } from "./AppThemeModeUtils";
 
 /**
  * Switch component for switching between theme modes (auto, light, dark).
  *
  * @author Idam Achmad Faizin
  */
-export const ThemeModeSwitch: React.FC<{}> = () => {
-  const [theme, setTheme] = useState<ThemeMode | null>(null);
+export const AppThemeModeSwitch: React.FC<{}> = () => {
+  const [theme, setTheme] = useState<AppThemeMode | null>(null);
 
   /**
-   * Define a mapping between {@link ThemeMode} and their corresponding icons.
+   * Define a mapping between {@link AppThemeMode} and their corresponding icons.
    *
    * @author Idam Achmad Faizin
    */
-  const iconMap: Record<ThemeMode, HeroIconsComponent> = {
+  const iconMap: Record<AppThemeMode, HeroIconsComponent> = {
     light: SunIcon,
     dark: MoonIcon,
     system: ComputerDesktopIcon,
@@ -39,10 +39,10 @@ export const ThemeModeSwitch: React.FC<{}> = () => {
    * @author Idam Achmad Faizin
    */
   useEffect(() => {
-    const mode: ThemeMode =
+    const mode: AppThemeMode =
       (window.localStorage.getItem(
-        ThemeModeLocalStorageKey,
-      ) as ThemeMode | null) ?? "system";
+        AppThemeModeLocalStorageKey,
+      ) as AppThemeMode | null) ?? "system";
     setTheme(mode);
   }, []);
 
@@ -51,10 +51,10 @@ export const ThemeModeSwitch: React.FC<{}> = () => {
    *
    * @author Idam Achmad Faizin
    */
-  const onClick = (selectedTheme: ThemeMode) => {
+  const onClick = (selectedTheme: AppThemeMode) => {
     setTheme(selectedTheme);
-    localStorage.setItem(ThemeModeLocalStorageKey, selectedTheme);
-    applyRootThemeMode(selectedTheme);
+    localStorage.setItem(AppThemeModeLocalStorageKey, selectedTheme);
+    appApplyRootThemeMode(selectedTheme);
   };
 
   return (
@@ -68,7 +68,7 @@ export const ThemeModeSwitch: React.FC<{}> = () => {
       </MenuButton>
 
       <MenuItems transition anchor="bottom end" className={styles.menuItems}>
-        {(Object.keys(iconMap) as ThemeMode[]).map((key) => (
+        {(Object.keys(iconMap) as AppThemeMode[]).map((key) => (
           <MenuItem key={key}>
             <button
               className={twMerge(

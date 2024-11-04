@@ -1,11 +1,11 @@
-import { ThemeMode } from "./ThemeMode.type";
+import { AppThemeMode } from "./AppThemeMode.type";
 
 /**
  * Key used to store the theme mode in local storage.
  *
  * @author Idam Achmad Faizin
  */
-export const ThemeModeLocalStorageKey = "theme";
+export const AppThemeModeLocalStorageKey = "theme";
 
 /**
  * Applies the given theme mode to the root element of the document.
@@ -17,10 +17,10 @@ export const ThemeModeLocalStorageKey = "theme";
  * @author Idam Achmad Faizin
  * @param theme The theme mode to apply.
  */
-export function applyRootThemeMode(theme: ThemeMode) {
+export function appApplyRootThemeMode(theme: AppThemeMode) {
   const themeModeAttributeKey = "data-theme";
 
-  const computedMode: Exclude<ThemeMode, "system"> =
+  const computedMode: Exclude<AppThemeMode, "system"> =
     theme === "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"

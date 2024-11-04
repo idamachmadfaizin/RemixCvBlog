@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import { ThemeModeScript } from "./components/ThemeMode/ThemeModeScript";
+import { AppThemeModeScript } from "./components/AppThemeMode/AppThemeModeScript";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -31,7 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        <ThemeModeScript />
+        <AppThemeModeScript />
       </head>
       <body>
         {children}

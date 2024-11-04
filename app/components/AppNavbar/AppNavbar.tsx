@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import React from "react";
-import { ThemeModeSwitch } from "../ThemeMode/ThemeModeSwitch";
+import { AppThemeModeSwitch } from "../AppThemeMode/AppThemeModeSwitch";
 
 type Props = React.ComponentPropsWithoutRef<"header">;
 
@@ -29,7 +29,7 @@ export const AppNavbar: React.FC<Props> = (props) => {
             >
               About
             </Link>
-            <ThemeModeSwitch />
+            <AppThemeModeSwitch />
           </div>
         </div>
       </nav>

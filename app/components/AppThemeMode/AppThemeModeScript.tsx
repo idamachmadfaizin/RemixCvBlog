@@ -1,11 +1,11 @@
 import React from "react";
-import { ThemeMode } from "./ThemeMode.type";
-import { ThemeModeLocalStorageKey, applyRootThemeMode } from "./ThemeModeUtils";
+import { AppThemeMode } from "./AppThemeMode.type";
+import { AppThemeModeLocalStorageKey, appApplyRootThemeMode } from "./AppThemeModeUtils";
 
 /**
  * The ThemeModeScript props type.
- * 
- * @author Idam Achmad Faizin 
+ *
+ * @author Idam Achmad Faizin
  */
 type Props = React.ComponentPropsWithoutRef<"script">;
 
@@ -19,9 +19,9 @@ type Props = React.ComponentPropsWithoutRef<"script">;
  *
  * @author Idam Achmad Faizin
  */
-export const ThemeModeScript: React.FC<Props> = (props) => {
+export const AppThemeModeScript: React.FC<Props> = (props) => {
   // Default theme mode if none is found in local storage.
-  const defaultMode: ThemeMode = "system";
+  const defaultMode: AppThemeMode = "system";
 
   return (
     <script
@@ -29,9 +29,9 @@ export const ThemeModeScript: React.FC<Props> = (props) => {
       dangerouslySetInnerHTML={{
         __html: `
           try {
-            const mode = window.localStorage.getItem("${ThemeModeLocalStorageKey}") ?? "${defaultMode}";
-            const applyRootThemeMode = ${applyRootThemeMode};
-            applyRootThemeMode(mode);
+            const mode = window.localStorage.getItem("${AppThemeModeLocalStorageKey}") ?? "${defaultMode}";
+            const appApplyRootThemeMode = ${appApplyRootThemeMode};
+            appApplyRootThemeMode(mode);
           } catch (e) {
             console.error("ThemeModeScript", e);
           }
