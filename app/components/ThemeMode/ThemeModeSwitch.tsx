@@ -60,7 +60,11 @@ export const ThemeModeSwitch: React.FC<{}> = () => {
   return (
     <Menu>
       <MenuButton className="rounded-lg p-2" aria-label="Theme Switch">
-        <AppIcon icon={iconMap[theme ?? "system"]} />
+        <AppIcon
+          icon={iconMap[theme ?? "system"]}
+          active
+          className="stroke-2"
+        />
       </MenuButton>
 
       <MenuItems transition anchor="bottom end" className={styles.menuItems}>
@@ -73,7 +77,12 @@ export const ThemeModeSwitch: React.FC<{}> = () => {
               )}
               onClick={() => onClick(key)}
             >
-              <AppIcon icon={iconMap[key]} active={key === theme} />
+              <AppIcon
+                icon={iconMap[key]}
+                active={key === theme}
+                disabled={key !== theme}
+                className="stroke-2"
+              />
               {startCase(key)}
             </button>
           </MenuItem>

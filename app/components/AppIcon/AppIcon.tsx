@@ -19,26 +19,29 @@ type HeroIconComponentProps = React.ComponentProps<typeof AcademicCapIcon>;
 type Props = {
   icon: React.ComponentType<HeroIconComponentProps>;
   active?: boolean;
+  disabled?: boolean;
 } & HeroIconComponentProps;
 
 /**
  * A component for rendering HeroIcons with predefined className.
- * 
+ *
  * @author Idam Achmad Faizin
  * @param {Props} props - The component's props.
  * @returns {JSX.Element} - The rendered HeroIcons component.
  */
 export const AppIcon: React.FC<Props> = ({
   icon: Icon,
-  active = true,
+  active,
+  disabled,
   className,
   ...props
 }: Props): JSX.Element => {
   return (
     <Icon
       className={twMerge(
-        "size-5 stroke-2", // Base styles for the icon
-        active ? "stroke-primary-500" : "stroke-gray-400", // Conditional styles based on active state
+        "size-5", // Base styles for the icon
+        active && "stroke-primary-500",
+        disabled && "stroke-gray-400",
         className, // Additional class names from props
       )}
       {...props} // Pass any other props to the icon component
