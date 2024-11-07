@@ -8,7 +8,7 @@ import {
 } from "@remix-run/react";
 
 import { AppThemeModeScript } from "./components/AppThemeMode/AppThemeModeScript";
-import "./tailwind.css";
+import "./tailwind.scss";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
