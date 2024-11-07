@@ -20,6 +20,18 @@ export default {
           "950": "#172554",
         },
       },
+      keyframes: {
+        moveFlip: {
+          '0%': { transform: 'translateX(-5rem) scaleX(1)' },
+          '0.1%': { transform: 'translateX(-5rem) scaleX(-1)' },
+          '49.9%': { transform: 'translateX(5rem) scaleX(-1)' },
+          '50%': { transform: 'translateX(5rem) scaleX(1)' },
+          '100%': { transform: 'translateX(-5rem) scaleX(1)' }
+        },
+      },
+      animation: {
+        moveFlip: 'moveFlip 5s ease-in-out infinite',
+      },
       fontFamily: {
         sans: [
           '"Inter var"',
