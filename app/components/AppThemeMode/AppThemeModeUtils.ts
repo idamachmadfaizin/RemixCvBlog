@@ -1,4 +1,4 @@
-import { AppThemeMode } from "./AppThemeMode.type";
+import { AppLightDarkThemeMode, AppThemeMode } from "./AppThemeMode.type";
 
 /**
  * Key used to store the theme mode in local storage.
@@ -20,7 +20,7 @@ export const AppThemeModeLocalStorageKey = "theme";
 export function appApplyRootThemeMode(theme: AppThemeMode) {
   const themeModeAttributeKey = "data-theme";
 
-  const computedMode: Exclude<AppThemeMode, "system"> =
+  const computedMode: AppLightDarkThemeMode =
     theme === "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"

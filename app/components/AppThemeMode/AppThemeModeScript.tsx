@@ -1,6 +1,9 @@
 import React from "react";
 import { AppThemeMode } from "./AppThemeMode.type";
-import { AppThemeModeLocalStorageKey, appApplyRootThemeMode } from "./AppThemeModeUtils";
+import {
+  AppThemeModeLocalStorageKey,
+  appApplyRootThemeMode,
+} from "./AppThemeModeUtils";
 
 /**
  * The ThemeModeScript props type.
@@ -28,9 +31,9 @@ export const AppThemeModeScript: React.FC<Props> = (props) => {
       {...props}
       dangerouslySetInnerHTML={{
         __html: `
+          ${appApplyRootThemeMode};
           try {
             const mode = window.localStorage.getItem("${AppThemeModeLocalStorageKey}") ?? "${defaultMode}";
-            const appApplyRootThemeMode = ${appApplyRootThemeMode};
             appApplyRootThemeMode(mode);
           } catch (e) {
             console.error("ThemeModeScript", e);
